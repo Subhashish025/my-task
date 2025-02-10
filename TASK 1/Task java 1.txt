@@ -1,0 +1,91 @@
+import java.util.*;
+
+public class JavaPrograms {
+    
+    // 1. Print Pattern
+    public static void printPattern() {
+        for (int i = 0; i < 5; i++) {
+            System.out.println("*****");
+        }
+    }
+
+    // Output:
+    // *****
+    // *****
+    // *****
+    // *****
+    // *****
+
+    // 2. Print Duplicates from an Array
+    public static void printDuplicates(int[] arr) {
+        Set<Integer> seen = new HashSet<>(), duplicates = new HashSet<>();
+        for (int num : arr) {
+            if (!seen.add(num)) {
+                duplicates.add(num);
+            }
+        }
+        System.out.println("Duplicates: " + duplicates);
+    }
+
+    // Output for [8,9,5,7,1,2,8,7,5]:  Duplicates: [8, 7, 5]
+
+    // 3. Print Even and Odd Numbers
+    public static void printEvenOdd(int[] arr) {
+        List<Integer> even = new ArrayList<>(), odd = new ArrayList<>();
+        for (int num : arr) {
+            if (num % 2 == 0) even.add(num);
+            else odd.add(num);
+        }
+        System.out.println("Even: " + even + " Odd: " + odd);
+    }
+
+    // Output for [8,11,42,80,5,3,1,8]: Even: [8, 42, 80, 8] Odd: [11, 5, 3, 1]
+
+    // 4. Print Integer with Type
+    public static void printWithType(int[] arr) {
+        for (int num : arr) {
+            System.out.println(num + "=" + (num % 2 == 0 ? "Even" : "Odd"));
+        }
+    }
+
+    // Output for [8,11,42,80,5,3,1,8]:
+    // 8=Even
+    // 11=Odd
+    // 42=Even
+    // 80=Even
+    // 5=Odd
+    // 3=Odd
+    // 1=Odd
+    // 8=Even
+
+    // 5. Create BankAcc Class
+    static class BankAcc {
+        int id;
+        String name, branch, openingDate;
+        double balance;
+        
+        public BankAcc(int id, String name, String branch, double balance, String openingDate) {
+            this.id = id;
+            this.name = name;
+            this.branch = branch;
+            this.balance = balance;
+            this.openingDate = openingDate;
+        }
+        
+        public void display() {
+            System.out.println("Id: " + id + ", Name: " + name + ", Branch: " + branch + ", Balance: " + balance + ", Opening Date: " + openingDate);
+        }
+    }
+    
+    // Example Usage:
+    // BankAcc acc = new BankAcc(101, "John Doe", "Main Branch", 5000.75, "01-01-2020");
+    // acc.display();
+    // Output: Id: 101, Name: John Doe, Branch: Main Branch, Balance: 5000.75, Opening Date: 01-01-2020
+
+    // 6. Count Number of Characters in a Word
+    public static int countCharacters(String word) {
+        return word.length();
+    }
+
+    // Output for "Manas": 5
+}

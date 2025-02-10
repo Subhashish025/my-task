@@ -1,0 +1,138 @@
+public class JavaPrograms {
+    
+    // 1. Reverse a String
+    public static String reverseString(String str) {
+        return new StringBuilder(str).reverse().toString();
+    }
+
+    // Output for "hello": olleh
+
+    // 2. Check Palindrome
+    public static boolean isPalindrome(String str) {
+        return str.equals(reverseString(str));
+    }
+
+    public static boolean isPalindrome(int num) {
+        return num == Integer.parseInt(reverseString(String.valueOf(num)));
+    }
+
+    // Output for 121: Palindrome, for "abc": Not Palindrome
+
+    // 3. Factorial of a Number
+    public static int factorial(int n) {
+        int fact = 1;
+        for (int i = 2; i <= n; i++) {
+            fact *= i;
+        }
+        return fact;
+    }
+
+    // Output for 5: 120
+
+    // 4. Fibonacci Series
+    public static void fibonacci(int n) {
+        int a = 0, b = 1, c;
+        System.out.print(a + " " + b);
+        for (int i = 2; i < n; i++) {
+            c = a + b;
+            System.out.print(" " + c);
+            a = b;
+            b = c;
+        }
+        System.out.println();
+    }
+
+    // Output for 6: 0 1 1 2 3 5
+
+    // 5. Check Prime Number
+    public static boolean isPrime(int num) {
+        if (num < 2) return false;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+
+    // Output for 7: Prime, for 10: Not Prime
+
+    // 6. Largest Number in an Array
+    public static int findLargest(int[] arr) {
+        int max = arr[0];
+        for (int num : arr) {
+            if (num > max) max = num;
+        }
+        return max;
+    }
+
+    // Output for {5, 2, 8, 1, 9}: 9
+
+    // 7. Count Digits in a Number
+    public static int countDigits(int num) {
+        return String.valueOf(num).length();
+    }
+
+    // Output for 12345: 5
+
+    // 8. Swap Two Numbers Without Temp Variable
+    public static void swapNumbers(int a, int b) {
+        a = a + b;
+        b = a - b;
+        a = a - b;
+        System.out.println("a=" + a + ", b=" + b);
+    }
+
+    // Output for a=5, b=10: a=10, b=5
+
+    // 9. Sum of Digits of a Number
+    public static int sumOfDigits(int num) {
+        int sum = 0;
+        while (num > 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        return sum;
+    }
+
+    // Output for 123: 6
+
+    // 10. Check Armstrong Number
+    public static boolean isArmstrong(int num) {
+        int sum = 0, temp = num;
+        while (temp > 0) {
+            int digit = temp % 10;
+            sum += digit * digit * digit;
+            temp /= 10;
+        }
+        return sum == num;
+    }
+
+    // Output for 153: Armstrong Number
+
+    // 11. Reverse a Number
+    public static int reverseNumber(int num) {
+        int rev = 0;
+        while (num > 0) {
+            rev = rev * 10 + num % 10;
+            num /= 10;
+        }
+        return rev;
+    }
+
+    // Output for 12345: 54321
+
+    // 12. Second Largest Number in an Array
+    public static int findSecondLargest(int[] arr) {
+        int first = Integer.MIN_VALUE, second = Integer.MIN_VALUE;
+        for (int num : arr) {
+            if (num > first) {
+                second = first;
+                first = num;
+            } else if (num > second && num != first) {
+                second = num;
+            }
+        }
+        return second;
+    }
+
+    // Output for {5, 2, 8, 1, 9}: 8
+}
